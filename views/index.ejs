@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <div class="jumbotron" style="height: 600px;">
+    <div class="jumbotron" style="height: auto;">
         <div class="container">
 
             <h2 class="display-3">Send Bitcoin!</h2>
@@ -86,7 +86,28 @@
 
             </div>
         </div>
+
+        <br>
+        <br>
+
+        <div class="container">
+            <button type="button" class="btn btn-primary" ng-click="getnewaddress()">Create Address</button>
+            <button type="button" class="btn btn-primary" ng-click="getAllAddress()">Refresh</button>
+            <p>{{a}}</p>
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="x in address">
+                        <th>{{$index + 1}}</th>
+                        <td>{{x.address}}</td>
+                        <td>{{x.balance}} BTC</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
     </div>
+
 
     <div class="container">
         <hr>

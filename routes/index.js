@@ -30,6 +30,44 @@ router.get('/getInfo', function(req, res, next) {
     });
 });
 
+router.get('/getnewaddress', function(req, res, next) {
+    client.getNewAddress(req.query.address || "", function(err, info, resHeaders) {
+        if (err) return console.log(err);
+        res.json(info);
+    });
+});
+
+
+router.get('/getaccount', function(req, res, next) {
+    client.getAccount(req.query.address, function(err, info, resHeaders) {
+        if (err) return console.log(err);
+        res.json(info);
+    });
+});
+
+
+router.get('/getaddressesbyaccount', function(req, res, next) {
+    client.getAddressesByAccount(req.query.account || "", function(err, info, resHeaders) {
+        if (err) return console.log(err);
+        res.json(info);
+    });
+});
+
+
+router.get('/getbalance', function(req, res, next) {
+    client.getBalance(req.query.account, function(err, info, resHeaders) {
+        if (err) return console.log(err);
+        res.json(info);
+    });
+});
+
+
+router.get('/getreceivedbyaddress', function(req, res, next) {
+    client.getReceivedByAddress(req.query.address, function(err, info, resHeaders) {
+        if (err) return console.log(err);
+        res.json(info);
+    });
+});
 
 router.post('/sendTransaction', function(req, res, next) {
     client.sendToAddress(req.body.address, parseInt(req.body.amount), function(err, result) {
