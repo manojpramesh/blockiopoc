@@ -37,7 +37,7 @@ router.post('/sendTransaction', function(req, res, next) {
         client.generate(1, function(err, res) {
             if (err) return console.error(err);
         });
-        res.send(true);
+        res.send(result);
     });
 });
 
